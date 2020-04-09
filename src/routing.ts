@@ -14,7 +14,7 @@ export default class Routing {
     }
 
     private routes() : void {
-
+        // tambah endpoint
         this._app.route('/users')
             .get(User.readUser)
             .post(User.createUser)
