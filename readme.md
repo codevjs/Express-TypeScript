@@ -10,7 +10,7 @@ Typescript adalah bahasa pemrograman berbasis JavaScript yang menambahkan fitur 
 
 **add endpoint**
 
-routing.ts
+main.routes.ts
 
 ` private routes() : void {
          // tambah endpoint 

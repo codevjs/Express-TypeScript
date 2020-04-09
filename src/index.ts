@@ -1,4 +1,4 @@
-import Main from "./config/main";
+import MainConfig from "./config/main.config";
 
-const app = new Main();
+const app = new MainConfig();
 app.start();

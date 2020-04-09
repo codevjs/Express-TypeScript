@@ -5,9 +5,9 @@ import helmet from 'helmet';
 import cors from 'cors';
 
 // routing
-import Routing from "../routes/routing";
+import Routing from "../routes/main.routes";
 
-export default class Main {
+export default class MainConfig {
 
     private port    : number = 8000;
     private _app    : Application;

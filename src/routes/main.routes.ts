@@ -2,9 +2,9 @@ import  { Router } from 'express';
 // interface
 import RoutesInterface from "../interface/routes.interface";
 // controller
-import User from "../controller/user";
+import User from "../controller/user.controller";
 
-class Routing implements RoutesInterface{
+class MainRoutes implements RoutesInterface{
 
     public router : Router = Router();
 
@@ -23,5 +23,5 @@ class Routing implements RoutesInterface{
     }
 }
 
-export default new Routing().router;
+export default new MainRoutes().router;
 
