@@ -1,16 +1,29 @@
 import {Request, Response} from 'express';
+// interface
+import ControllerInterface from "../interface/controller.interface";
 
-export default class UserController {
+class UserController implements ControllerInterface {
 
-    static createUser(req : Request, res : Response): void {
-
-        res.send(req.body);
+    index(req: Request, res: Response) : Response {
+        return res.send("");
     }
 
-    static readUser(req : Request, res : Response): void {
-
-        res.send("Hello ini user dari class")
+    create(req: Request, res: Response) : Response {
+        return res.send(req.body);
     }
 
+    show(req: Request, res: Response) : Response {
 
+        return res.send("Hello user");
+    }
+
+    update(req: Request, res: Response) : Response {
+        return res.send("");
+    }
+
+    delete(req: Request, res: Response) : Response {
+        return res.send("");
+    }
 }
+
+export default new UserController();
