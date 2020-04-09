@@ -14,7 +14,7 @@ routing.ts
 
 ` private routes() : void {
          // tambah endpoint 
-         this._app.route('/users')
+         this.routes.route('/users')
              .get(User.readUser)
              .post(User.createUser)
   }`
