@@ -13,7 +13,6 @@ class UserController implements ControllerInterface {
     }
 
     show(req: Request, res: Response) : Response {
-
         return res.send("Hello user");
     }
 
@@ -24,6 +23,14 @@ class UserController implements ControllerInterface {
     delete(req: Request, res: Response) : Response {
         return res.send("");
     }
+
+    public router() : any[] {
+
+        return  [
+                    { path : '/users', controller : this.show, method : 'get'},
+                    { path : '/users', controller : this.create, method : 'post'}
+                ]
+    }
 }
 
-export default new UserController();
+export default new UserController()

@@ -1,5 +1,5 @@
 interface RoutesInterface {
-    endPoint() : void;
+     endPoint() : void;
 }
 
 export default RoutesInterface;

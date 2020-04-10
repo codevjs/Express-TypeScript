@@ -1,8 +1,10 @@
 import  { Router } from 'express';
 // interface
 import RoutesInterface from "../interface/routes.interface";
+
 // controller
-import User from "../controller/user.controller";
+// @ts-ignore
+import * as Controllers from "../controller";
 
 class MainRoutes implements RoutesInterface{
 
@@ -12,14 +14,12 @@ class MainRoutes implements RoutesInterface{
         this.endPoint();
     }
 
-    public endPoint() : void {
-
-        // users endpoint
-        this.router.route("/users")
-            .get(User.show)
-            .post(User.create)
-
-
+     public endPoint() : void {
+        [].concat.apply([], Object.keys(Controllers).map(key => Controllers[key].router()))
+            .forEach(route => {
+                // @ts-ignore
+                this.router[route.method](route.path, route.controller)
+            })
     }
 }
 
