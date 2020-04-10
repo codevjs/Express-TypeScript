@@ -4,16 +4,22 @@ import ControllerInterface from "../interface/controller.interface";
 
 class AuthController implements ControllerInterface {
 
-    sigIn(req: Request, res: Response) : Response {
+    signIn(req: Request, res: Response) : Response {
 
         return res.send("wow");
     }
 
-    public router() : any[] {
+    signUp(req: Request, res: Response) : Response {
+
+        return res.send("wow");
+    }
+
+    public router() : object[] {
 
         return  [
-            { path : '/auth',  controller : this.sigIn, method : "post"}
-        ]
+                    { path : '/auth/login',  controller : this.signIn, method : "post"},
+                    { path : '/auth/register',  controller : this.signUp, method : "post"}
+                ]
     }
 }
 

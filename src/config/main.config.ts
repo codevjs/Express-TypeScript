@@ -1,14 +1,12 @@
 import express, {Application} from 'express';
-import bodyParser from 'body-parser';
-import compression from 'compression';
-import helmet from 'helmet';
-import cors from 'cors';
-
 // routing
 import Routing from "../routes/main.routes";
+// plugins
+import PluginConfig from "./plugin.config";
 
 export default class MainConfig {
 
+    private baseApi : string = "/api/v1";
     private port    : number = 8000;
     private _app    : Application;
 
@@ -19,21 +17,17 @@ export default class MainConfig {
     }
 
     private plugins() : void {
-        this._app.use(bodyParser.json());
-        this._app.use(bodyParser.urlencoded({ extended: false }));
-        this._app.use(compression());
-        this._app.use(cors());
-        this._app.use(helmet());
+        PluginConfig.plugins().forEach(plugin => {
+            this._app.use(plugin)
+        })
     }
 
     private routes() : void {
-       this._app.use("/api/v1", Routing);
+       this._app.use(this.baseApi, Routing);
     }
 
     public start() : void {
-
         this._app.listen(this.port, () => {
-
             console.log("sever run on port " + this.port);
         });
     }

@@ -18,7 +18,9 @@ class MainRoutes implements RoutesInterface{
         [].concat.apply([], Object.keys(Controllers).map(key => Controllers[key].router()))
             .forEach(route => {
                 // @ts-ignore
-                this.router[route.method](route.path, route.controller)
+                route.middleware
+                    ? this.router[route.method](route.path, route.middleware, route.controller)
+                    : this.router[route.method](route.path, route.controller)
             })
     }
 }

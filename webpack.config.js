@@ -40,5 +40,5 @@ module.exports = {
     externals: [
         nodeExternals()
     ],
-    mode: "development"
+    mode: "production"
 };
